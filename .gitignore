@@ -1,0 +1,44 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Instance folder
+instance/
+
+# Database files
+*.db
+*.sqlite
+/data/
+
+# Uploaded files and media
+/uploads/
+/media/
+
+# IDE-specific files
+.idea/
+.vscode/
+
+# Test-related files
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Distribution / build files
+dist/
+build/
+*.egg-info/
+
+# Configuration files (if they contain sensitive data)
+*.env
+.flaskenv
+config.pyc
+
+# Logs
+*.log
