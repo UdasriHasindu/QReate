@@ -4,9 +4,7 @@ from datetime import datetime
 
 YEAR = datetime.now().year
 
-
 app = Flask(__name__)
-
 
 @app.route("/")
 def home():

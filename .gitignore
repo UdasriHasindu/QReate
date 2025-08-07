@@ -4,6 +4,9 @@ __pycache__/
 *.pyd
 *.pyo
 
+# QR codes
+/static/qrcodes
+
 # Virtual environment
 .venv/
 env/
