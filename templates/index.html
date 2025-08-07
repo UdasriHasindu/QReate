@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QReate - Generate Your QR Code</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1><i class="fas fa-qrcode"></i> QReate</h1>
+      <p class="subtitle">Instantly create QR codes for links, text, or Wi-Fi</p>
+    </header>
+    <form action="/generate" method="POST" class="qr-form">
+      <div class="input-group">
+        <input
+          type="text"
+          name="qrdata"
+          id="qrdata"
+          placeholder="Enter text, URL, Wi-Fi info..."
+          required
+          aria-label="QR code data input"
+        />
+        <span class="input-icon"><i class="fas fa-link"></i></span>
+      </div>
+      <div class="options">
+        <label for="qr-type">QR Type:</label>
+        <select id="qr-type" name="qr-type">
+          <option value="url">URL</option>
+          <option value="text">Text</option>
+          <option value="wifi">Wi-Fi</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-generate">
+        <i class="fas fa-bolt"></i> Generate QR Code
+      </button>
+    </form>
+    <div class="preview" id="qr-preview" style="display: none;">
+      <h3>Your QR Code</h3>
+      <img id="qr-image" src="" alt="Generated QR Code" />
+      <a href="#" id="download-btn" class="btn-download"><i class="fas fa-download"></i> Download</a>
+    </div>
+    <footer>
+      <p>Copyright &copy; <em>UH {{ year }}</em> | Made with <i class="fas fa-heart"></i> using Python</p>
+      <div class="social-links">
+        <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      </div>
+    </footer>
+  </div>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
