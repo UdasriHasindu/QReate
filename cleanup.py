@@ -2,7 +2,7 @@ import os
 import time
 
 QR_FOLDER = "static/qrcodes"
-TIME = 60   # for 1hr
+TIME = 3600   # for 1hr
 
 def clean_qr_codes():
     now = time.time()
