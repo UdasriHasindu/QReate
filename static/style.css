@@ -228,7 +228,7 @@ footer .fa-heart {
 
 .button-group a {
   padding: 10px 20px;
-  background-color: #141124;
+  background-color: #120f1f;
   color: white;
   text-decoration: none;
   border-radius: 5px;
@@ -237,5 +237,5 @@ footer .fa-heart {
 }
 
 .button-group a:hover {
-  background-color: #271c5f;
+  background-color: #0e004f;
 }

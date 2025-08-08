@@ -1,12 +1,18 @@
 from flask import Flask, render_template, request, redirect, url_for
-
-from cleanup import clean_qr_codes
+from cleanup import clean_qr_codes, TIME
 from generator import Generate_QR
 from datetime import datetime
+import threading
+import time
 
 YEAR = datetime.now().year
 
 app = Flask(__name__)
+
+def schedule_cleanup(interval):
+    while True:
+        clean_qr_codes()
+        time.sleep(interval)
 
 @app.route("/")
 def home():
@@ -27,5 +33,6 @@ def view_qr(qr_id):
 
 
 if __name__ == "__main__":
-    clean_qr_codes()
+    cleanup_thread = threading.Thread(target=schedule_cleanup ,args=(TIME,), daemon=True)
+    cleanup_thread.start()
     app.run(debug=True)
