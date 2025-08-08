@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
+
+from cleanup import clean_qr_codes
 from generator import Generate_QR
 from datetime import datetime
 
@@ -25,4 +27,5 @@ def view_qr(qr_id):
 
 
 if __name__ == "__main__":
+    clean_qr_codes()
     app.run(debug=True)
