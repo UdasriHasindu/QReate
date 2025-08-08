@@ -1,9 +1,10 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 from cleanup import clean_qr_codes, TIME
 from generator import Generate_QR
 from datetime import datetime
 import threading
 import time
+import os
 
 YEAR = datetime.now().year
 
@@ -18,6 +19,13 @@ def schedule_cleanup(interval):
 def home():
     return render_template('index.html', year=YEAR)
 
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(
+        os.path.join(app.root_path, 'static'),
+        'favicon.ico',
+        mimetype='image/vnd.microsoft.icon'
+    )
 
 @app.route("/generate", methods=['POST'])
 def generate():
